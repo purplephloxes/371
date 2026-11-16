@@ -1,23 +1,29 @@
 % !TeX root = main.tex
 \documentclass[oneside]{book}
-\usepackage{graphicx} % Required for inserting images
+
+% Layout and text
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{epigraph}
+\usepackage{array}
+\usepackage{xspace}
+\usepackage[toc,page]{appendix}
+
+% Math
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{titling} % title stuff
-\usepackage{epigraph} % epigraphs
-\usepackage[hyphens]{url} % \url{}
-\usepackage{array}
-\usepackage{systeme}
 \usepackage{mathtools}
-\usepackage[toc,page]{appendix}
-\usepackage{xspace}
-\usepackage[hidelinks]{hyperref}
 \usepackage{spalign}
 \spaligndelims[]
 
+% URLs
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+
+% Theorems
 \usepackage{amsthm}
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}[section] % might swap this to chapter
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
