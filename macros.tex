@@ -1,0 +1,42 @@
+% !TeX root = main.tex
+
+% symbol shenaniganery
+\newif\ifsymlinks % \symlinkstrue to turn on, \symlinksfalse to turn off
+% \sym{key}{symbol}
+\newcommand{\sym}[2]{%
+   \ifsymlinks
+      \hyperlink{sym:#1}{#2}%
+   \else
+      #2%
+   \fi
+}
+
+% \symdef{key}{symbol}
+\newcommand{\symdef}[2]{%
+   \ifsymlinks
+      \hypertarget{sym:#1}{#2}%
+   \else
+      #2%
+   \fi
+}
+
+% general field & common fields
+\NewDocumentCommand{\field}{O{F}}{%
+   \ensuremath{\sym{field}{\mathbb{#1}}}%
+   \xspace
+}
+\newcommand{\real}{\field[R]}
+\newcommand{\complex}{%
+   \ensuremath{\sym{complex}{\mathbb{C}}}%
+   \xspace
+}
+
+% basic spaces
+\NewDocumentCommand{\vecsp}{O{V}}{%
+   \ensuremath{\sym{vecsp}{#1}}%
+   \xspace
+}
+\NewDocumentCommand{\subsp}{O{U}}{%
+   \ensuremath{\sym{subsp}{#1}}%
+   \xspace
+}
