@@ -1,1 +1,113 @@
 \chapter{Fields and Vector Spaces}
+We must begin our foray into linear algebra with some basics. After all, it's all about the building blocks and we have a many a ways to go before we reach things as basic as matrices, let alone things as interesting as geometry or taxonomy. Of course, we'll be there in short order, but to even begin we must start from the fields that our vector spaces are defined over.
+\begin{definition}[Fields]
+   A field \field is a non-empty set with at least two distinguished elements, $0\neq1$, and comes with two binary operations: addition and multipication. Addition and multiplication are defined such that the following properties are satisfied for $a,b,c\in\field$.
+   \begin{enumerate}
+   \item Commutativity: $a+b=b+a$ and $ab=ba$
+   \item Identity: $a+0=a$ and $1\cdot a=a$
+   \item Additive Inversion: $\exists!\ {-}a$ such that $a+{-}a=0$
+   \item Multiplicative Inversion: $a\neq0\implies\exists!\ a^{-1}$ such that $aa^{-1}=1$.
+   \item Distributivity: $c(a+b)=ca+cb$
+   \item Associativity: $(a+b)+c=a+(b+c)$ and $(ab)c=a(bc)$
+   \end{enumerate}
+\end{definition}
+\begin{remark}[Usage of \field]
+   It's worth noting that \field will be used throughout and can generally be understood to be \real or \complex. Where it differs, it should be specified in advance and the specific field will be preferred, such as \complex for nilpotent operators.
+\end{remark}
+\begin{remark}[Rings]
+   If one were to exclude the existence of multiplicative inverses, you would end up with a ring! Don't cite me on this though, both I and my professor thought it was a fun fact.
+\end{remark}
+\section{The Complex Numbers}
+\begin{definition}[\complex]
+   Let $i=\sqrt{-1}\in\complex$ such that $i^2=-1$. A complex number is an ordered pair $a,b\in\real$, $(a,b)$ denoted by $a+bi$. Complex addition is defined coordinate wise such that for $a+bi,c+di\in\complex$,
+   \begin{equation}
+      \label{eq:complex-addition}
+      (a+bi)+(c+di)=(a+c)+(b+d)i
+   \end{equation}
+   Complex multiplication is further defined as
+   \begin{equation}
+      \label{eq:complex-multiplication}
+      (a+bi)(c+di)=(ac-bc)+(ad+bc)i
+   \end{equation}
+\end{definition}
+\begin{corollary}[$\real\subseteq\complex$]
+   Trivial by
+   \begin{equation}
+      \label{eq:reals-subset-complex}
+      \real=\{a+bi\in\complex:b=0\}
+   \end{equation}
+\end{corollary}
+\begin{proposition}[Multiplicative Inverses in \complex]
+   We want to show that given $a+bi\in\complex\setminus\{0\},\ \exists\ c+di\in\complex$ such that $(a+bi)(c+di)=1$. Observe,
+   \[
+      (a+bi)(a-bi)=a^2+b^2>0
+   \]
+   Therefore,
+   \[
+      (a+bi)\left( {a\over a^2+b^2} - {b\over a^2+b^2}i  \right)
+   \]
+   Which can be manipulated to
+   \[
+      {a^2+b^2\over a^2+b^2}=1
+   \]
+   Thus demonstrating the existence of multiplicative inverses on \complex.
+\end{proposition}
+Now, it is worth noting that because $(a+bi)(a-bi)$ give such a result, we give $a-bi$ a special name because it is of great utility.
+\begin{definition}[Complex Conjugation]
+   Let $z\in\complex$ such that $z=a+bi$. $\overline{z}=a-bi$ is the complex conjugate of $z$.
+\end{definition}
+Indeed, complex conjugates allow us to write useful values more easily. For example,
+\[
+   (a+bi)\overline{(a+bi)}=a^2+b^2=|a+bi|^2
+\]
+Of particular note is an easier formula to find the multiplicative inverse given $z\neq0$,
+\begin{equation}
+   \label{eq:complex-inverse}
+   z^{-1}={\overline{z}\over |z|^2}
+\end{equation}
+But, do be warned, conjugates are used for far more than just this as they are an extremely powerful tool.
+\section{Vector Spaces}
+\begin{definition}[Vector Spaces]
+   Let \field be a field and \vecsp a non-empty set.
+   \begin{enumerate}
+   \item An addition on \vecsp is a binary operation such that $v,w\in\vecsp,\ \exists!\ v+w\in\vecsp$
+   \item A scalar multiplication on \vecsp is an operation such that $\forall\alpha\in\field,\ \forall v\in\vecsp,\ \exists!\ \alpha v\in\vecsp$
+   \end{enumerate}
+   \vecsp is an \field-vector space if addition and scalar multiplication are defined such that, $\forall u,v,w\in\vecsp$ and $\alpha,\beta\in\field$, they have the following properties:
+   \begin{enumerate}
+   \item Commutativity: $u+v=v+u$
+   \item Associativity: $(u+v)+w=u+(v+w)$ and $(\alpha\beta)v=\alpha(\beta v)$
+   \item Additive Identity: $\exists\ 0\in\vecsp:v+0=v$
+   \item Additive Inversion: $\exists\ x\in\vecsp:v+x=0$
+   \item Multiplicative Identity: $1\cdot v=v$
+   \item Distributivity: $\alpha(u+v)=\alpha u + \alpha v$
+   \end{enumerate}
+\end{definition}
+\begin{example}[Fundamental Vector Space $\field^n$]
+   Let $n\geqslant1$.
+   \begin{equation}
+      \label{eq:fundamental-vecsp}
+      \field^n =\{(\finseq{a}):\finseq{a}\in\field\}
+   \end{equation}
+   Addition is defined component wise such that
+   \begin{equation}
+      \label{eq:fundamental-vecsp-add}
+      (\finseq{a})+(\finseq{b})=(a_1+b_1,\cdots,a_n+b_n)
+   \end{equation}
+   Scalar multiplication is similarly defined,
+   \begin{equation}
+      \label{eq:fundamental-vecsp-smult}
+      \alpha(\finseq{a})=(\finseq{\alpha a})
+   \end{equation}
+   Where $0\in\field^n$ is defined as $(0,\cdots,0)$ and the additive inverse of $(\finseq{a})$ is trivially $(\finseq{-a})$.
+\end{example}
+\begin{remark}[Vector Notation]
+   \[
+      \spalignmat{a_1;\vdots;a_n}=(\finseq{a})
+   \]
+\end{remark}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../main"
+%%% End:
