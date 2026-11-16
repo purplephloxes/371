@@ -28,7 +28,9 @@
    \ensuremath{\sym{complex}{\mathbb{C}}}%
    \xspace
 }
-
+% sequences
+%% worth noting for finseq that the 3rd arg is the starting index
+\NewDocumentCommand{\finseq}{m O{n} O{1}}{#1_{#3},\ldots,#1_{#2}}
 % basic spaces
 \NewDocumentCommand{\vecsp}{O{V}}{%
    \ensuremath{\sym{vecsp}{#1}}%
