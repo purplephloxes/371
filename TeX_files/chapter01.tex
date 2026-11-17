@@ -106,7 +106,40 @@ But, do be warned, conjugates are used for far more than just this as they are a
       \spalignmat{a_1;\vdots;a_n}=(\finseq{a})
    \]
 \end{remark}
-
+Examples of other vector spaces include,
+\begin{enumerate}
+\item $\complex^\infty(\real)=\{f(x):\real\to\real,\ f\textrm{ is analytic}\}$ where addition is function addition and scalar multiplication is the post-multiply function by $\alpha\in\real$
+\item \complex as a \real-vector space with addition and scalar multiplication being complex addition and restricted complex multiplication respectively.
+\end{enumerate}
+\begin{proposition}[Basic Properties of Vector Spaces]
+   Let \field be a field and \vecsp an \field-vector space. The following are true of \field and \vecsp,
+   \begin{itemize}
+   \item Uniqueness of the Zero Vector: $\exists!\ v\in\vecsp:v=0_{\vecsp}$
+   \item Additive Inversion: $v\in\vecsp\implies\exists!\ w\in\vecsp:v+w=0$ where $w$ is denoted as $-v$ such that $v-v=0$
+   \item Multiplicative Annihilation: $\forall v\in\vecsp,\ 0_{\field} v=0_{\vecsp}$ and $\forall\alpha\in\field,\ \alpha0_{\vecsp}=0_{\vecsp}$
+   \end{itemize}
+\end{proposition}
+\begin{proof}
+   \begin{enumerate}
+   \item Let $w\in\vecsp$ such that
+      \[
+        \forall\ v\in\vecsp,\ v+w=v
+     \]
+     By the properties of $w$ and $0$, $0+w=0$ and $0+w=w$ respectively. Therefore, $w=0$
+  \item Let $v\in\vecsp$. Suppose $w_1,w_2\in\vecsp$ such that
+     \[
+        v+w_1=v+w_2=0
+     \]
+     Through basic manipulation,
+     \[
+        \begin{aligned}
+          w_1&=(w_1+v)+w_2\\
+             &= 0+w_2=w_2
+        \end{aligned}
+     \]
+     Therefore $w_1=w_2$
+   \end{enumerate}
+\end{proof}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "../main"
