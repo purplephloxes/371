@@ -113,33 +113,55 @@ Examples of other vector spaces include,
 \end{enumerate}
 \begin{proposition}[Basic Properties of Vector Spaces]
    Let \field be a field and \vecsp an \field-vector space. The following are true of \field and \vecsp,
-   \begin{itemize}
+   \begin{enumerate}
    \item Uniqueness of the Zero Vector: $\exists!\ v\in\vecsp:v=0_{\vecsp}$
    \item Additive Inversion: $v\in\vecsp\implies\exists!\ w\in\vecsp:v+w=0$ where $w$ is denoted as $-v$ such that $v-v=0$
-   \item Multiplicative Annihilation: $\forall v\in\vecsp,\ 0_{\field} v=0_{\vecsp}$ and $\forall\alpha\in\field,\ \alpha0_{\vecsp}=0_{\vecsp}$
-   \end{itemize}
+   \item Multiplicative Annihilation: $\forall\ v\in\vecsp,\ 0_{\field} v=0_{\vecsp}$ and $\forall\alpha\in\field,\ \alpha0_{\vecsp}=0_{\vecsp}$
+   \end{enumerate}
 \end{proposition}
 \begin{proof}
+   
    \begin{enumerate}
    \item Let $w\in\vecsp$ such that
       \[
-        \forall\ v\in\vecsp,\ v+w=v
-     \]
-     By the properties of $w$ and $0$, $0+w=0$ and $0+w=w$ respectively. Therefore, $w=0$
-  \item Let $v\in\vecsp$. Suppose $w_1,w_2\in\vecsp$ such that
-     \[
-        v+w_1=v+w_2=0
-     \]
-     Through basic manipulation,
-     \[
-        \begin{aligned}
-          w_1&=(w_1+v)+w_2\\
-             &= 0+w_2=w_2
-        \end{aligned}
-     \]
-     Therefore $w_1=w_2$
+         \forall\ v\in\vecsp,\ v+w=v
+      \]
+      By the properties of $w$ and $0$, $0+w=0$ and $0+w=w$ respectively. Therefore, $w=0$
+   \item Let $v\in\vecsp$. Suppose $w_1,w_2\in\vecsp$ such that
+      \[
+         v+w_1=v+w_2=0
+      \]
+      Through basic manipulation,
+      \[
+         \begin{aligned}
+           w_1&=(w_1+v)+w_2\\
+              &= 0+w_2=w_2
+         \end{aligned}
+      \]
+      Therefore $w_1=w_2$
+   \item Let $v\in\vecsp$ and $\alpha\in\field$.
+      \[
+         \begin{aligned}
+           0v &= (0+0)v = 0v+0v\\
+           0v-0v &= 0v+(0v-0v) \\
+           \implies 0&= 0v+0=0v
+         \end{aligned}
+      \]
+      It is trivial to further show $\alpha0=0$.
    \end{enumerate}
 \end{proof}
+\section{Subspaces}
+\begin{definition}[Subspaces]
+   Let \field be a field and \vecsp an \field-vector space. A non-empty subset $\subsp\subseteq\vecsp$ is a subspace of \vecsp if vector addition and scalar multiplication are closed under \subsp. Equivalently, the following properties must hold for $\subsp\subseteq\vecsp$,
+   \begin{enumerate}
+   \item $0\in\subsp$
+   \item $\forall\ u_1,u_2\in\subsp,\ u_1+u_2\in\subsp$
+   \item $\forall\alpha\in\field,\ \forall u\in\subsp,\ \alpha u\in\subsp$
+   \end{enumerate}
+\end{definition}
+\begin{corollary}[Trivial Subspaces of \vecsp]
+   It is trivial to show that $\{0\}\subseteq\vecsp$ and $\vecsp\subseteq\vecsp$ are subspaces of \vecsp.
+\end{corollary}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "../main"
