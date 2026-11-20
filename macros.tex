@@ -40,3 +40,10 @@
    \ensuremath{\sym{subsp}{#1}}%
    \xspace
 }
+\NewDocumentCommand{\lmaps}{ e{_} d() }{%
+  \sym{lmaps}{%
+  \mathcal{L}%
+  \IfValueT{#1}{_{#1}}%
+  \IfValueT{#2}{(#2)}%
+  }
+}
